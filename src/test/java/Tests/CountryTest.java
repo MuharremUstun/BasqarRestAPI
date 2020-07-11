@@ -1,8 +1,11 @@
+package Tests;
+
 import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
 import models.Country;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utilities.Setup;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,21 +18,8 @@ public class CountryTest {
     private String countryId;
 
     @BeforeClass
-    public void authentication() {
-        baseURI = "https://basqar.techno.study";
-        Map<String, String> loginCredentials = new HashMap<>();
-        loginCredentials.put("username", "nigeria_tenant_admin");
-        loginCredentials.put("password", "TnvLOl54WxR75vylop2A");
-
-        cookies = given()
-                .contentType(ContentType.JSON)
-                .body(loginCredentials)
-                .when()
-                .post("/auth/login")
-                .then()
-                .statusCode(200)
-                .extract().response().getDetailedCookies()
-        ;
+    public void init() {
+        cookies = Setup.authentication();
     }
 
     @Test

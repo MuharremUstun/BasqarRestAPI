@@ -40,7 +40,6 @@ public class CountryTest {
                 .get("/school-service/api/countries")
                 .then()
                 .statusCode(200)
-                .log().body()
         ;
     }
 
@@ -60,8 +59,6 @@ public class CountryTest {
                 .statusCode(201)
                 .extract().jsonPath().getString("id")
         ;
-
-
     }
 
     @Test
@@ -73,8 +70,7 @@ public class CountryTest {
                 .when()
                 .delete("/school-service/api/countries/" + countryId)
                 .then()
-                .log().body()
                 .statusCode(200);
-
     }
+
 }

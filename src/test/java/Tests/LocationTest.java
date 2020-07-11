@@ -11,9 +11,6 @@ import utilities.PropertiesFile;
 import utilities.RandomString;
 import utilities.Setup;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
